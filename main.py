@@ -39,15 +39,3 @@ for row in rows:
     else:
         print(clear_value[0] + ', ' + clear_value[5] )
 
-
-f = open('helloworld.html', 'w')
-
-message = """<html>
-<head></head>
-<body><p>Hello World!</p></body>
-</html>"""
-
-f.write(message)
-f.close()
-
-webbrowser.open_new_tab('helloworld.html')
