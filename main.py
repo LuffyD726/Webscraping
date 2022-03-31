@@ -24,22 +24,24 @@ my_tbody = my_table.find('tbody')
 # finds all the rows in the body
 rows = my_tbody.find_all('tr')
 
-# loop through all the rows on the body
+# loop through all the rows in the body
 for row in rows:
 
     # find every cell
     value = row.find_all('td')
-
+    
     # strip the data from the cell
-    clear_value = [dp.text.strip() for dp in value]
+    clear_value = [dp.get_text(strip=True, separator=' ')  for dp in value]
 
     # check if there is an empty cell (like the first one)
     if len(clear_value) == 0:
         continue
     elif '/' in clear_value[0]:
-        clear_value[0] = clear_value[0].replace("/","or")
+        clear_value[0] = clear_value[0].replace("/"," or ")
     elif '(list)' in clear_value[0]:
         clear_value[0] = clear_value[0].replace("(list)","")
+        
+    #remove the empty colleteral adjactives cells
     if clear_value[5] == '?':
         print(clear_value[0])
     else:
