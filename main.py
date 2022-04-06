@@ -15,6 +15,9 @@ start ='''
 #write the start of the html file
 f.write(start)
 
+
+print ("hello")
+
 print('Name, Collateral adjective')
 
 #Request the wikipedia page
